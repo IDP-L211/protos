@@ -3,7 +3,7 @@
 
 PROTO Ultrasonic_HC-SR504 [
   field SFVec3f    translation  0 0 0
-  field SFRotation rotation     0 1 0 0
+  field SFRotation rotation     0 1 0 -1.570796327
 ] {
   DistanceSensor {
     translation IS translation
@@ -21,10 +21,11 @@ PROTO Ultrasonic_HC-SR504 [
       1.35  1.35  0.009
       1.5   1.5   0.010
     ]
-    type           "sonar"
-    numberOfRays   1
-    aperture       0.5235987756  # 30deg from datasheet
-    resolution     -1            # {-1, [0, inf)}
+    name          "ultrasonic"
+    type          "sonar"
+    numberOfRays  1
+    aperture      0.5235987756  # 30deg from datasheet
+    resolution    -1            # {-1, [0, inf)}
   }
 }
 # the following line just sets vi/vim to use two spaces, feel free to ignore it
