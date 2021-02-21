@@ -1,0 +1,39 @@
+#VRML_SIM R2021a utf8
+# Ultrasonic distance sensor provided for the IDP
+
+PROTO IR_Long_GP2Y0A02YK0F [
+  field SFVec3f    translation  0 0 0
+  field SFRotation rotation     0 1 0 0
+] {
+  DistanceSensor {
+    translation IS translation
+    rotation IS rotation
+    # It should be illegal to provide a datasheet with a graph but no csv smh
+    lookupTable [
+      0     0     0,
+      0.1   2.31  0.05
+      0.15  2.75  0.05
+      0.2   2.53  0.05
+      0.3   1.98  0.05
+      0.4   1.54  0.05
+      0.5   1.23  0.05
+      0.6   1.05  0.05
+      0.7   0.90  0.05
+      0.8   0.81  0.05
+      0.9   0.72  0.05
+      1.0   0.65  0.05
+      1.1   0.60  0.05
+      1.2   0.55  0.05
+      1.3   0.52  0.05
+      1.4   0.48  0.05
+      1.5   0.45  0.05
+    ]
+    name          "ir_long"
+    type          "infra-red"
+    numberOfRays  1
+    aperture      0.5235987756  # 30deg complete guess because bad datasheet
+    resolution    -1            # {-1, [0, inf)}
+  }
+}
+# the following line just sets vi/vim to use two spaces, feel free to ignore it
+# vi: sts=2:sw=2:et
