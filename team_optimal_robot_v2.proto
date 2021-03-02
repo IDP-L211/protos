@@ -1,0 +1,220 @@
+PROTO robot_model_2 [
+  field SFVec3f    translation  -0.03 0.035 0.76
+  field SFRotation rotation     0 1 0 0
+  field SFFloat    bodyMass     1
+]
+{
+  Robot {
+    translation IS translation
+    rotation IS rotation
+    children [
+    DistanceSensor {
+      translation 0.0225 -0.02 -0.075
+      rotation 0 1 0 1.396
+      name "ultrasonic_right"
+      lookupTable [
+        0 0 0
+        0.1 0.1 0.01667
+        0.2 0.2 0.00833
+        0.3 0.3 0.00556
+        0.4 0.4 0.00417
+        0.5 0.5 0.00333
+        0.6 0.6 0.00278
+        0.7 0.7 0.00238
+        0.8 0.8 0.00208
+        0.9 0.9 0.00185
+        1 1 0.00167
+      ]
+      type "sonar"
+      numberOfRays 20
+      aperture 0.5235987756
+    }
+    DistanceSensor {
+      translation -0.0225 -0.02 -0.075
+      rotation 0 1 0 1.745
+      name "ultrasonic_left"
+      lookupTable [
+        0 0 0
+        0.1 0.1 0.01667
+        0.2 0.2 0.00833
+        0.3 0.3 0.00556
+        0.4 0.4 0.00417
+        0.5 0.5 0.00333
+        0.6 0.6 0.00278
+        0.7 0.7 0.00238
+        0.8 0.8 0.00208
+        0.9 0.9 0.00185
+        1 1 0.00167
+      ]
+      type "sonar"
+      numberOfRays 20
+      aperture 0.5235987756
+    }
+    DEF GATE HingeJoint {
+      jointParameters HingeJointParameters {
+        position 5.616075030873274e-07
+        anchor 0.075 0 -0.075
+      }
+      device [
+        RotationalMotor {
+          name "gate"
+        }
+      ]
+      endPoint Solid {
+        translation 0.0750009588294496 4.708842760902888e-08 -0.1500020345455299
+        rotation 0.5773472601562878 0.577351611560464 0.5773519358403183 2.0943999998531644
+        children [
+          DEF GATE_SHAPE Shape {
+            geometry Cylinder {
+              height 0.15
+              radius 0.005
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE GATE_SHAPE
+        physics Physics {
+          density -1
+          mass 0.01
+        }
+      }
+    }
+    DEF RIGHT_WHEEL HingeJoint {
+      jointParameters HingeJointParameters {
+        axis -1 0 0
+        anchor 0.075 0.015 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel2"
+        }
+      ]
+      endPoint DEF WHEEL2 Solid {
+        translation 0.08000028038985298 0.015001901849481136 1.0484012255440909e-06
+        rotation -5.733001983023271e-06 6.4596638838632355e-06 -0.9999999999627026 1.5708155238108048
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {
+        }
+      }
+    }
+    DEF BODY Group {
+      children [
+        DEF FENCE2 Transform {
+          translation 0.0749986 -6.70089e-07 -0.224999
+          rotation -0.5773522691882489 -0.5773502691873165 -0.5773482691863839 2.09439
+          children [
+            DEF SCOOP_2 Shape {
+              geometry Extrusion {
+                crossSection [
+                  -0.005 -0.005
+                  -0.005 0.005
+                  0.005 0.005
+                  0.005 -0.005
+                  -0.005 -0.005
+                ]
+                spine [
+                  0 0 0
+                  0.01 0.0359 0
+                  0.02 0.04989 0
+                  0.03 0.06 0
+                  0.04 0.068 0
+                  0.05 0.0745 0
+                  0.06 0.08 0
+                  0.07 0.0846 0
+                  0.08 0.0884 0
+                  0.09 0.0916 0
+                  0.1 0.0943 0
+                  0.11 0.0964 0
+                  0.12 0.098 0
+                  0.13 0.0991 0
+                  0.14 0.0998 0
+                  0.15 0.1 0
+                ]
+              }
+            }
+          ]
+        }
+        DEF FENCE1 Transform {
+          translation 0.075 0 0.075
+          rotation -0.577349935856137 -0.5773509358560258 0.577349935856137 -2.094395307179586
+          children [
+            DEF SCOOP_2 Shape {
+              geometry Extrusion {
+                crossSection [
+                  -0.005 -0.005
+                  -0.005 0.005
+                  0.005 0.005
+                  0.005 -0.005
+                  -0.005 -0.005
+                ]
+                spine [
+                  0 0 0
+                  0 0.1 0
+                  0.01 0.1 0
+                  0.15 0.1 0
+                ]
+              }
+            }
+          ]
+        }
+        DEF SLIPPER Transform {
+          translation 0.175 -0.02 -0.075
+          children [
+            DEF CASTER Shape {
+              geometry Sphere {
+                radius 0.0125
+              }
+            }
+          ]
+        }
+        DEF MAIN_BODY Shape {
+          geometry Box {
+            size 0.15 0.05 0.15
+          }
+        }
+      ]
+    }
+    DEF LEFT_WHEEL HingeJoint {
+      jointParameters HingeJointParameters {
+        axis -1 0 0
+        anchor -0.075 0.015 0
+      }
+      device [
+        RotationalMotor {
+          name "wheel1"
+        }
+      ]
+      endPoint DEF WHEEL1 Solid {
+        translation -0.08000048642236607 0.015001995100980525 -1.0171463713555708e-06
+        rotation -6.399085671071744e-06 5.663144060637943e-06 -0.9999999999634902 1.5707750122514066
+        children [
+          DEF WHEEL Shape {
+            geometry Cylinder {
+              height 0.01
+              radius 0.05
+            }
+          }
+
+    ]
+    boundingObject USE WHEEL
+     physics DEF WHEEL_PH Physics {
+     }
+   }
+ }
+]
+    boundingObject USE  MAIN_BODY
+    physics Physics {
+    density 2000
+        }
+    controller "foward"
+  }
+}
