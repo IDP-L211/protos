@@ -1,7 +1,6 @@
-PROTO robot_model_2 [
+PROTO team_optimal_robot [
   field SFVec3f    translation  -0.03 0.035 0.76
   field SFRotation rotation     0 1 0 0
-  field SFFloat    bodyMass     1
 ]
 {
   Robot {
@@ -203,17 +202,15 @@ PROTO robot_model_2 [
               radius 0.05
             }
           }
-
+        ]
+        boundingObject USE WHEEL
+        physics DEF WHEEL_PH Physics {}
+      }
+    }
     ]
-    boundingObject USE WHEEL
-     physics DEF WHEEL_PH Physics {
-     }
-   }
- }
-]
     physics Physics {
-    density 2000
-        }
-    controller "foward"
+      density 2000
+    }
+    controller "driver"
   }
 }
