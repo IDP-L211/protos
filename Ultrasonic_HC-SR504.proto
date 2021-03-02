@@ -23,7 +23,7 @@ PROTO Ultrasonic_HC-SR504 [
     ]
     name          "ultrasonic"
     type          "sonar"
-    numberOfRays  1
+    numberOfRays  20
     aperture      0.5235987756  # 30deg from datasheet
     resolution    -1            # {-1, [0, inf)}
   }
