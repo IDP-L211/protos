@@ -126,7 +126,7 @@ PROTO team_optimal_robot [
     DEF RIGHT_WHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 1 0 0
-        anchor 0.075 0.015 0
+        anchor 0.09 0.015 0
       }
       device [
         RotationalMotor {
@@ -134,7 +134,7 @@ PROTO team_optimal_robot [
         }
       ]
       endPoint DEF WHEEL2 Solid {
-        translation 0.08000028038985298 0.015001901849481136 1.0484012255440909e-06
+        translation 0.09 0.015 0
         rotation -5.733001983023271e-06 6.4596638838632355e-06 -0.9999999999627026 1.5708155238108048
         children [
           DEF WHEEL Shape {
@@ -230,7 +230,7 @@ PROTO team_optimal_robot [
     DEF LEFT_WHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 1 0 0
-        anchor -0.075 0.015 0
+        anchor -0.09 0.015 0
       }
       device [
         RotationalMotor {
@@ -238,7 +238,7 @@ PROTO team_optimal_robot [
         }
       ]
       endPoint DEF WHEEL1 Solid {
-        translation -0.08000048642236607 0.015001995100980525 -1.0171463713555708e-06
+        translation -0.09 0.015 0
         rotation -6.399085671071744e-06 5.663144060637943e-06 -0.9999999999634902 1.5707750122514066
         children [
           DEF WHEEL Shape {
