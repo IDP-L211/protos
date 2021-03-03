@@ -253,7 +253,14 @@ PROTO team_optimal_robot [
       }
     }
     ]
-    boundingObject USE  MAIN_BODY
+    boundingObject Group {
+      children [
+        USE SLIPPER
+        USE FENCE2
+        USE FENCE1
+        USE MAIN_BODY
+      ]
+    }
     physics Physics {
       density 2000
     }
