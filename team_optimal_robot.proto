@@ -54,7 +54,7 @@ PROTO team_optimal_robot [
     }
     DistanceSensor {
       translation 0.0225 -0.02 -0.075
-      rotation 0 1 0 1.396
+      rotation 0 1 0 -1.745
       name "ultrasonic_right"
       lookupTable [
         0 0 0
@@ -75,7 +75,7 @@ PROTO team_optimal_robot [
     }
     DistanceSensor {
       translation -0.0225 -0.02 -0.075
-      rotation 0 1 0 1.745
+      rotation 0 1 0 -1.396
       name "ultrasonic_left"
       lookupTable [
         0 0 0
@@ -211,11 +211,11 @@ PROTO team_optimal_robot [
           ]
         }
         DEF SLIPPER Transform {
-          translation 0.175 -0.02 -0.075
+          translation -0.175 -0.0175 -0.055
           children [
             DEF CASTER Shape {
               geometry Sphere {
-                radius 0.0125
+                radius 0.0175
               }
             }
           ]
