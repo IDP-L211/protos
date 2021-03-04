@@ -46,7 +46,7 @@ PROTO team_optimal_robot [
         1.4   0.48  0.0347
         1.5   0.45  0.0370
       ]
-      name          "infrared"
+      name          "ir_long"
       type          "laser"
       numberOfRays  1
       aperture      0.05235987756  # 3deg
