@@ -1,7 +1,7 @@
 PROTO target [
   field SFVec3f    translation  0 0 0
   field SFRotation rotation     0 1 0 0
-  field SFColor colour 1 0 0 
+  field SFColor colour 1 0 0
   field SFString name "target"
 ]
 {
@@ -49,6 +49,7 @@ Solid {
       ]
     }
   ]
+  contactMaterial "block"
   boundingObject USE BOX
   physics Physics {
   }

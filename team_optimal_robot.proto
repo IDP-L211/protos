@@ -169,7 +169,7 @@ PROTO team_optimal_robot[
     DEF RIGHT_WHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 1 0 0
-        anchor 0.09 0.015 0.025
+        anchor -0.09 0.015 0.025
       }
       device [
         RotationalMotor {
@@ -290,7 +290,7 @@ PROTO team_optimal_robot[
     DEF LEFT_WHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 1 0 0
-        anchor -0.09 0.015 0.025
+        anchor 0.09 0.015 0.025
       }
       device [
         RotationalMotor {
@@ -318,6 +318,7 @@ PROTO team_optimal_robot[
       }
     }
     ]
+    contactMaterial "slippy"
     boundingObject Group {
       children [
         USE SLIPPER
