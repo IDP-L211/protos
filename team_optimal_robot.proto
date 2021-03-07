@@ -117,6 +117,9 @@ PROTO team_optimal_robot [
         rotation 0.5773464191028238 0.577352036331288 0.5773523521154665 2.094399991357324
         children [
           DEF GATE_SHAPE Shape {
+            appearance PBRAppearance {
+              baseColor 0.33 0.33 0.33
+            }
             geometry Cylinder {
               height 0.15
               radius 0.005
@@ -146,6 +149,9 @@ PROTO team_optimal_robot [
         translation 0.09 0.015 0.02
         children [
           DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.33 0.33 0.33
+            }
             geometry Cylinder {
               height 0.01
               radius 0.05
@@ -165,6 +171,9 @@ PROTO team_optimal_robot [
           rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.09439
           children [
             DEF SCOOP_2 Shape {
+              appearance PBRAppearance {
+                baseColor 0.33 0.33 0.33
+              }
               geometry Extrusion {
                 crossSection [
                   -0.005 -0.005
@@ -200,6 +209,9 @@ PROTO team_optimal_robot [
           rotation 0.5773502691896258 -0.5773502691896258 0.5773502691896258 2.0944
           children [
             DEF SCOOP_2 Shape {
+              appearance PBRAppearance {
+                baseColor 0.33 0.33 0.33
+              }
               geometry Extrusion {
                 crossSection [
                   -0.005 -0.005
@@ -222,6 +234,9 @@ PROTO team_optimal_robot [
           translation 0 -0.0175 -0.1
           children [
             DEF CASTER Shape {
+              appearance PBRAppearance {
+                baseColor 0.33 0.33 0.33
+              }
               geometry Sphere {
                 radius 0.0175
               }
@@ -229,6 +244,9 @@ PROTO team_optimal_robot [
           ]
         }
         DEF MAIN_BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.33 0.33 0.33
+          }
           geometry Box {
             size 0.15 0.05 0.15
           }
@@ -250,6 +268,9 @@ PROTO team_optimal_robot [
         translation -0.09 0.014999999988880712 0.02
         children [
           DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.33 0.33 0.33
+            }
             geometry Cylinder {
               height 0.01
               radius 0.05
