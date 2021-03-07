@@ -1,4 +1,4 @@
-PROTO team_optimal_robot [
+PROTO team_optimal_robot[
   field SFVec3f    translation  -0.03 0.035 0.76
 ]
 {
@@ -6,14 +6,25 @@ PROTO team_optimal_robot [
     translation IS translation
     # It seems that a few things rely on this value, so lets not expose it
     rotation 0 1 0 0
-    children [
-	Compass {
+  children [
+    Receiver {
+      channel 1
+    }
+    Emitter {
+      channel 1
+    }
+    Display {
+      name "map"
+      width 256
+      height 256
+    }
+    Compass {
 	  name        "compass"
 	  xAxis       TRUE
 	  yAxis       TRUE
 	  zAxis       TRUE
 	  resolution  -1
-	}
+    }
     GPS {
       name              "gps"
       type              "satellite"
@@ -24,9 +35,8 @@ PROTO team_optimal_robot [
       speedResolution  -1
     }
     DistanceSensor {
-      translation IS translation
-      rotation 0 1 0 1.570796327
-      # It should be illegal to provide a datasheet with a graph but no csv smh
+      translation 0 0 0
+      rotation 0 1 0 -1.5708
       lookupTable [
         0     0     0,
         0.1   2.31  0.0072
@@ -53,7 +63,7 @@ PROTO team_optimal_robot [
       resolution    -1             # {-1, [0, inf)}
     }
     DistanceSensor {
-      translation 0.0225 -0.02 -0.075
+      translation -0.0225 -0.02 0.075
       rotation 0 1 0 -1.745
       name "ultrasonic_right"
       lookupTable [
@@ -74,7 +84,7 @@ PROTO team_optimal_robot [
       aperture 0.5235987756
     }
     DistanceSensor {
-      translation -0.0225 -0.02 -0.075
+      translation 0.0225 -0.02 0.075
       rotation 0 1 0 -1.396
       name "ultrasonic_left"
       lookupTable [
@@ -97,18 +107,23 @@ PROTO team_optimal_robot [
     DEF GATE HingeJoint {
       jointParameters HingeJointParameters {
         position 5.616075030873274e-07
-        anchor 0.075 0 -0.075
+        axis -1 0 0
+        anchor -0.075 0 0.075
       }
       device [
         RotationalMotor {
           name "gate"
+          maxTorque 0.4
         }
       ]
       endPoint Solid {
-        translation 0.0750009588294496 4.708842760902888e-08 -0.1500020345455299
-        rotation 0.5773472601562878 0.577351611560464 0.5773519358403183 2.0943999998531644
+        translation -0.075001 0 0.150002
+        rotation 0.5773464191028238 0.577352036331288 0.5773523521154665 2.094399991357324
         children [
           DEF GATE_SHAPE Shape {
+            appearance PBRAppearance {
+              baseColor 0.33 0.33 0.33
+            }
             geometry Cylinder {
               height 0.15
               radius 0.005
@@ -126,18 +141,23 @@ PROTO team_optimal_robot [
     DEF RIGHT_WHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 1 0 0
-        anchor 0.09 0.015 0
+        anchor 0.09 0.015 0.025
       }
       device [
         RotationalMotor {
           name "wheel2"
+          maxVelocity 20
+          maxTorque 0.4
         }
       ]
       endPoint DEF WHEEL2 Solid {
-        translation 0.09 0.015 0
         rotation -5.733001983023271e-06 6.4596638838632355e-06 -0.9999999999627026 1.5708155238108048
+        translation 0.09 0.015 0.025
         children [
           DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.33 0.33 0.33
+            }
             geometry Cylinder {
               height 0.01
               radius 0.05
@@ -153,10 +173,13 @@ PROTO team_optimal_robot [
     DEF BODY Group {
       children [
         DEF FENCE2 Transform {
-          translation 0.0749986 -6.70089e-07 -0.224999
-          rotation -0.5773522691882489 -0.5773502691873165 -0.5773482691863839 2.09439
+          translation -0.0749986 0 0.224999
+          rotation -0.5773502691896258 0.5773502691896258 0.5773502691896258 2.09439
           children [
             DEF SCOOP_2 Shape {
+              appearance PBRAppearance {
+                baseColor 0.33 0.33 0.33
+              }
               geometry Extrusion {
                 crossSection [
                   -0.005 -0.005
@@ -188,10 +211,13 @@ PROTO team_optimal_robot [
           ]
         }
         DEF FENCE1 Transform {
-          translation 0.075 0 0.075
-          rotation -0.577349935856137 -0.5773509358560258 0.577349935856137 -2.094395307179586
+          translation -0.075 0 -0.075
+          rotation 0.5773502691896258 -0.5773502691896258 0.5773502691896258 2.0944
           children [
             DEF SCOOP_2 Shape {
+              appearance PBRAppearance {
+                baseColor 0.33 0.33 0.33
+              }
               geometry Extrusion {
                 crossSection [
                   -0.005 -0.005
@@ -211,9 +237,12 @@ PROTO team_optimal_robot [
           ]
         }
         DEF SLIPPER Transform {
-          translation -0.175 -0.0175 -0.055
+          translation 0 -0.0175 -0.1
           children [
             DEF CASTER Shape {
+              appearance PBRAppearance {
+                baseColor 0.33 0.33 0.33
+              }
               geometry Sphere {
                 radius 0.0175
               }
@@ -221,6 +250,9 @@ PROTO team_optimal_robot [
           ]
         }
         DEF MAIN_BODY Shape {
+          appearance PBRAppearance {
+            baseColor 0.33 0.33 0.33
+          }
           geometry Box {
             size 0.15 0.05 0.15
           }
@@ -230,18 +262,23 @@ PROTO team_optimal_robot [
     DEF LEFT_WHEEL HingeJoint {
       jointParameters HingeJointParameters {
         axis 1 0 0
-        anchor -0.09 0.015 0
+        anchor -0.09 0.015 0.025
       }
       device [
         RotationalMotor {
           name "wheel1"
+          maxVelocity 20
+          maxTorque 0.4
         }
       ]
       endPoint DEF WHEEL1 Solid {
-        translation -0.09 0.015 0
         rotation -6.399085671071744e-06 5.663144060637943e-06 -0.9999999999634902 1.5707750122514066
+        translation -0.09 0.014999999988880712 0.025
         children [
           DEF WHEEL Shape {
+            appearance PBRAppearance {
+              baseColor 0.33 0.33 0.33
+            }
             geometry Cylinder {
               height 0.01
               radius 0.05
@@ -263,6 +300,9 @@ PROTO team_optimal_robot [
     }
     physics Physics {
       density 2000
+      centerOfMass [
+      0 0 -0.03
+      ]
     }
     controller "driver"
   }
