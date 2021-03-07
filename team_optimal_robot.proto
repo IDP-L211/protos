@@ -104,6 +104,34 @@ PROTO team_optimal_robot[
       numberOfRays 20
       aperture 0.5235987756
     }
+    LightSensor {
+      translation 0 0.075 0.14639
+      rotation 0 0 1 -1.570796327
+      name "red_light_sensor"
+      lookupTable [
+        0     0 0
+        0.369 0 0
+        0.370 1 0
+        1     1 0
+      ]
+      colorFilter 1 0 0
+      occlusion   FALSE
+      resolution  -1
+    }
+    LightSensor {
+      translation 0 0.075 0.15239
+      rotation 0 0 1 -1.570796327
+      name "green_light_sensor"
+      lookupTable [
+        0     0 0
+        0.369 0 0
+        0.370 1 0
+        1     1 0
+      ]
+      colorFilter 0 1 0
+      occlusion   FALSE
+      resolution  -1
+    }
     DEF GATE HingeJoint {
       jointParameters HingeJointParameters {
         position 5.616075030873274e-07
