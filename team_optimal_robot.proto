@@ -15,6 +15,8 @@ PROTO team_optimal_robot[
     }
     Display {
       name "map"
+      width 256
+      height 256
     }
     Compass {
 	  name        "compass"
@@ -106,11 +108,12 @@ PROTO team_optimal_robot[
       jointParameters HingeJointParameters {
         position 5.616075030873274e-07
         axis -1 0 0
-        anchor 0.075 0 -0.075
+        anchor -0.075 0 0.075
       }
       device [
         RotationalMotor {
           name "gate"
+          maxTorque 0.4
         }
       ]
       endPoint Solid {
@@ -143,6 +146,8 @@ PROTO team_optimal_robot[
       device [
         RotationalMotor {
           name "wheel2"
+          maxVelocity 20
+          maxTorque 0.4
         }
       ]
       endPoint DEF WHEEL2 Solid {
@@ -262,6 +267,8 @@ PROTO team_optimal_robot[
       device [
         RotationalMotor {
           name "wheel1"
+          maxVelocity 20
+          maxTorque 0.4
         }
       ]
       endPoint DEF WHEEL1 Solid {
