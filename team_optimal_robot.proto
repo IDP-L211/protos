@@ -128,7 +128,7 @@ PROTO team_optimal_robot[
         boundingObject USE GATE_SHAPE
         physics Physics {
           density -1
-          mass 0.1
+          mass 0.01
         }
       }
     }
