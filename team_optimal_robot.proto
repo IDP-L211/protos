@@ -180,7 +180,7 @@ PROTO team_optimal_robot[
       ]
       endPoint DEF WHEEL2 Solid {
         rotation -5.733001983023271e-06 6.4596638838632355e-06 -0.9999999999627026 1.5708155238108048
-        translation 0.09 0.015 0.025
+        translation -0.09 0.015 0.025
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
@@ -301,7 +301,7 @@ PROTO team_optimal_robot[
       ]
       endPoint DEF WHEEL1 Solid {
         rotation -6.399085671071744e-06 5.663144060637943e-06 -0.9999999999634902 1.5707750122514066
-        translation -0.09 0.014999999988880712 0.025
+        translation 0.09 0.014999999988880712 0.025
         children [
           DEF WHEEL Shape {
             appearance PBRAppearance {
