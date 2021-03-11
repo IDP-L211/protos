@@ -1,4 +1,4 @@
-PROTO team_optimal_robot[
+PROTO green[
   field SFVec3f    translation  -0.03 0.035 0.76
 ]
 {
@@ -6,6 +6,7 @@ PROTO team_optimal_robot[
     translation IS translation
     # It seems that a few things rely on this value, so lets not expose it
     rotation 0 1 0 0
+    name "green"
   children [
     Receiver {
       channel 1
@@ -279,7 +280,7 @@ PROTO team_optimal_robot[
         }
         DEF MAIN_BODY Shape {
           appearance PBRAppearance {
-            baseColor 0.33 0.33 0.33
+            baseColor 0 1 0
           }
           geometry Box {
             size 0.15 0.05 0.15
