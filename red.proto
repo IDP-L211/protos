@@ -334,8 +334,6 @@ PROTO red[
         ]
       }
       USE SLIPPER
-      USE FENCE2
-      USE FENCE1
       USE MAIN_BODY
     ]
     }
