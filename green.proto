@@ -291,8 +291,8 @@ PROTO green[
       device [
         RotationalMotor {
           name "wheel1"
-          maxVelocity 20
-          maxTorque 0.4
+          maxVelocity 8
+          maxTorque 0.1
         }
       ]
       endPoint DEF WHEEL1 Solid {
@@ -334,8 +334,6 @@ PROTO green[
         ]
       }
       USE SLIPPER
-      USE FENCE2
-      USE FENCE1
       USE MAIN_BODY
     ]
     }
