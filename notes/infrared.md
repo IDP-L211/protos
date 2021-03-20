@@ -49,3 +49,6 @@ plt.savefig('ir_error.pdf', bbox_inches='tight')
 
 ```
 ![IR Error](ir_error.pdf)
+
+I used [vim-venus](https://github.com/tim-clifford/vim-venus) for this.
+Totally shameless plug.
