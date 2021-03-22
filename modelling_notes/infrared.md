@@ -1,4 +1,8 @@
-# Estimation of error in IR sensor
+# Estimation of error in the infrared IR sensor GP2Y0A02YK0F
+
+It is assumed here that the electrical noise in the circuit is +/-50mV. This is
+fairly conservative.
+
 Data:
 ```python
 data = [
